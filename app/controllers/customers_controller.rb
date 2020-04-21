@@ -1,5 +1,5 @@
-require_relative "../../app/views/customers_view"
-require_relative "../../app/models/customer"
+require_relative "../views/customers_view"
+require_relative "../models/customer"
 
 class CustomersController
   def initialize(customer_repo)
@@ -12,9 +12,9 @@ class CustomersController
     @view.display(customers)
   end
 
-  def create
-    name = @view.ask_user_for("name")
-    address = @view.ask_user_for("address")
+  def add
+    name = @view.ask_for("name")
+    address = @view.ask_for("address")
     customer = Customer.new(name: name, address: address)
     @customer_repo.add(customer)
   end
